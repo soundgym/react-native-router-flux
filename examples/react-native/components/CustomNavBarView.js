@@ -1,6 +1,7 @@
-import React from 'react';
+import {ViewPropTypes} from 'deprecated-react-native-prop-types';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, ViewPropTypes} from 'react-native';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import Button from 'react-native-button';
 import {Actions} from 'react-native-router-flux';
 
