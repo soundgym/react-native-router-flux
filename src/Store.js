@@ -4,7 +4,7 @@ import React from 'react';
 import { Animated, Easing, Image } from 'react-native';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer';
-import { createStackNavigatorCustom } from 'react-navigation-stack';
+import { createStackNavigatorFlux } from 'react-navigation-stack';
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import _drawerImage from '../images/menu_burger.png';
 import * as ActionConst from './ActionConst';
@@ -857,7 +857,7 @@ export default class NavigationStore {
         navigationOptions: createNavigationOptions(commonProps),
       });
     }
-    return createStackNavigatorCustom(res, {
+    return createStackNavigatorFlux(res, {
       mode,
       initialRouteParams,
       initialRouteName,
