@@ -1,6 +1,6 @@
 {
   "name": "react-native-router-flux",
-  "version": "4.4.23",
+  "version": "4.4.25",
   "description": "React Native Router using Flux architecture",
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
     "build": "./node_modules/.bin/babel src -d dist",
     "lint": "prettier-eslint $PWD/'src/**/*.js' $PWD/'__tests__/**/*.js' --list-different",
     "fix": "prettier-eslint $PWD/'src/**/*.js' $PWD/'__tests__/**/*.js' --write",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "npx bump && git add . && git commit -m \"modify data\" && git push"
   },
   "dependencies": {
     "@babel/runtime": "^7.6.0",
