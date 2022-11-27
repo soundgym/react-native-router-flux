@@ -17,8 +17,62 @@ index f97a7e4..f298cad 100644
      'headerBackTitleVisible',
      'onTransitionStart',
      'onTransitionEnd',
+diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
+index 3ea8548..150c5ff 100755
+--- a/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
++++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
+@@ -1,32 +1,21 @@
++import Color from 'color';
+ import * as React from 'react';
+ import {
+-  Animated,
+-  View,
+-  StyleSheet,
+-  ViewProps,
+-  StyleProp,
+-  ViewStyle,
+-  Platform,
+-  InteractionManager,
++  Animated, InteractionManager, Platform, StyleProp, StyleSheet, View, ViewProps, ViewStyle
+ } from 'react-native';
+ import {
+-  PanGestureHandler,
+-  State as GestureState,
+-  PanGestureHandlerGestureEvent,
++  PanGestureHandler, PanGestureHandlerGestureEvent, State as GestureState
+ } from 'react-native-gesture-handler';
+ import { EdgeInsets } from 'react-native-safe-area-context';
+-import Color from 'color';
+-import StackGestureRefContext from '../../utils/GestureHandlerRefContext';
++import {
++  GestureDirection,
++  Layout, StackCardStyleInterpolator, TransitionSpec
++} from '../../types';
+ import CardAnimationContext from '../../utils/CardAnimationContext';
++import StackGestureRefContext from '../../utils/GestureHandlerRefContext';
+ import getDistanceForDirection from '../../utils/getDistanceForDirection';
+ import getInvertedMultiplier from '../../utils/getInvertedMultiplier';
+ import memoize from '../../utils/memoize';
+-import {
+-  TransitionSpec,
+-  StackCardStyleInterpolator,
+-  GestureDirection,
+-  Layout,
+-} from '../../types';
+ 
+ type Props = ViewProps & {
+   index: number;
+@@ -485,7 +474,7 @@ export default class Card extends React.Component<Props> {
+                   pointerEvents="none"
+                 />
+               ) : null}
+-              <View ref={this.content} style={[styles.content, contentStyle] as any}>
++              <View ref={this.content} style={[styles.content, contentStyle,{backgroundColor:"red"}] as any}>
+                 <StackGestureRefContext.Provider value={this.gestureRef}>
+                   <CardAnimationContext.Provider value={animationContext}>
+                     {children}
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
-index 2ca12de..a56808b 100644
+index 2ca12de..1211095 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 @@ -1,17 +1,15 @@
@@ -46,12 +100,3 @@ index 2ca12de..a56808b 100644
  
  type Props = TransitionPreset & {
    index: number;
-@@ -164,7 +162,7 @@ function CardContainer({
-           ? { marginTop: headerHeight }
-           : null
-       }
--      contentStyle={[{ backgroundColor: colors.background }, cardStyle] as any}
-+      contentStyle={[{ backgroundColor: "red" }, cardStyle] as any}
-       style={StyleSheet.absoluteFill}
-     >
-       <View style={styles.container}>
