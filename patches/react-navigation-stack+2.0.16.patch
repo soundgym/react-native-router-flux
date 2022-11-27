@@ -185,14 +185,13 @@ index 002b37a..f4625ec 100755
                  active={isScreenActive}
                  pointerEvents="box-none"
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx
-index c30acd7..6fb6ebc 100644
+index c30acd7..3b2492b 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx
 @@ -1,24 +1,20 @@
  import * as React from 'react';
--import { Platform } from 'react-native';
+ import { Platform } from 'react-native';
 -import { SafeAreaConsumer, EdgeInsets } from 'react-native-safe-area-context';
-+import { Platform, View } from 'react-native';
 +import { EdgeInsets, SafeAreaConsumer } from 'react-native-safe-area-context';
  import {
 -  StackActions,
@@ -222,18 +221,16 @@ index c30acd7..6fb6ebc 100644
  
  type Props = StackNavigationConfig & {
    state: StackNavigationState;
-@@ -266,11 +262,13 @@ class StackView extends React.Component<Props, State> {
+@@ -266,8 +262,10 @@ class StackView extends React.Component<Props, State> {
      const SceneComponent = getComponent();
  
      return (
 -      <SceneView
-+    <View style={{flex:1,backgroundColor:"black"}}>
+-        screenProps={this.props.screenProps}
 +        <SceneView
-         screenProps={this.props.screenProps}
++        screenProps={{...this.props.screenProps,options: {
++          backgroundColor:"blue"
++        }}}
          navigation={navigation}
          component={SceneComponent}
        />
-+    </View>
-     );
-   };
- 
