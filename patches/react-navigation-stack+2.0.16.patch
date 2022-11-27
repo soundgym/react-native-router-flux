@@ -18,7 +18,7 @@ index f97a7e4..f298cad 100644
      'onTransitionStart',
      'onTransitionEnd',
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
-index 3ea8548..4d56ec6 100755
+index 3ea8548..7787ab2 100755
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
 @@ -1,32 +1,21 @@
@@ -67,12 +67,12 @@ index 3ea8548..4d56ec6 100755
  
      return (
 -      <View pointerEvents="box-none" {...rest}>
-+      <View pointerEvents="box-none" {...rest} style={{backgroundColor:"blue"}}>
++      <View pointerEvents="box-none" {...rest} >
          {overlayEnabled && overlayStyle ? (
            <Animated.View
              pointerEvents="none"
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
-index 2ca12de..1211095 100644
+index 2ca12de..fb2f74c 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 @@ -1,17 +1,15 @@
@@ -100,3 +100,14 @@ index 2ca12de..1211095 100644
  
  type Props = TransitionPreset & {
    index: number;
+@@ -197,8 +195,10 @@ const styles = StyleSheet.create({
+   container: {
+     flex: 1,
+     flexDirection: 'column-reverse',
++    backgroundColor:"red"
+   },
+   scene: {
+     flex: 1,
++    backgroundColor:"green"
+   },
+ });
