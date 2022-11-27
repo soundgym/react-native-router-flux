@@ -6881,8 +6881,8 @@ react-navigation-drawer@^2.2.1:
   integrity sha512-d/rA8Slqv7HoMfONKVDBQUrRF7YQH796Gzal/KOhaY4VOwUUqIwfxMRJ3WrsdL2OkDPixtkXJE2Fz6KAj658uA==
 
 react-navigation-stack@soundgym/react-navigation-stack:
-  version "2.1.17"
-  resolved "https://codeload.github.com/soundgym/react-navigation-stack/tar.gz/06bb66c5d3fc742e66f6e3193dd715ae4f2b4bfe"
+  version "2.1.18"
+  resolved "https://codeload.github.com/soundgym/react-navigation-stack/tar.gz/2698bdbc1b09f476f4169de49cee473886b18ccc"
   dependencies:
     color "^3.1.2"
     react-native-iphone-x-helper "^1.2.1"
