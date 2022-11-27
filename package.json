@@ -1,6 +1,6 @@
 {
   "name": "react-native-router-flux",
-  "version": "4.4.5",
+  "version": "4.4.6",
   "description": "React Native Router using Flux architecture",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "prop-types": "^15.6.2",
     "react-navigation": "4.x",
     "react-navigation-drawer": "^2.2.1",
-    "react-navigation-stack": "^2.10.4",
+    "react-navigation-stack": "1.x",
     "react-navigation-tabs": "^2.10.1",
     "remove": "^0.1.5"
   },
