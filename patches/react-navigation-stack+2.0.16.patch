@@ -1,0 +1,19 @@
+diff --git a/node_modules/react-navigation-stack/src/utils/validateDeprecatedConfig.tsx b/node_modules/react-navigation-stack/src/utils/validateDeprecatedConfig.tsx
+index f97a7e4..f298cad 100644
+--- a/node_modules/react-navigation-stack/src/utils/validateDeprecatedConfig.tsx
++++ b/node_modules/react-navigation-stack/src/utils/validateDeprecatedConfig.tsx
+@@ -1,5 +1,5 @@
+ import { StyleProp, ViewStyle } from 'react-native';
+-import { StackNavigationOptions, StackNavigationConfig } from '../vendor/types';
++import { StackNavigationConfig, StackNavigationOptions } from '../vendor/types';
+ 
+ type Validation = {
+   message: string;
+@@ -38,7 +38,6 @@ const validations: Record<string, Validation> = {
+   ...[
+     'cardShadowEnabled',
+     'cardOverlayEnabled',
+-    'cardStyle',
+     'headerBackTitleVisible',
+     'onTransitionStart',
+     'onTransitionEnd',
