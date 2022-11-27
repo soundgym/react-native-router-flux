@@ -1,0 +1,18 @@
+diff --git a/node_modules/react-navigation-stack/src/views/StackView/StackViewLayout.tsx b/node_modules/react-navigation-stack/src/views/StackView/StackViewLayout.tsx
+index a2cf83c..5c7d4ba 100644
+--- a/node_modules/react-navigation-stack/src/views/StackView/StackViewLayout.tsx
++++ b/node_modules/react-navigation-stack/src/views/StackView/StackViewLayout.tsx
+@@ -16,7 +16,6 @@ import {
+   NavigationActions,
+   NavigationProvider,
+   ThemeContext,
+-  withOrientation,
+ } from 'react-navigation';
+ import { ScreenContainer } from 'react-native-screens';
+ import {
+@@ -1010,4 +1009,4 @@ const styles = StyleSheet.create({
+   },
+ });
+ 
+-export default withOrientation(StackViewLayout);
++export default StackViewLayout;
