@@ -72,7 +72,7 @@ index 3ea8548..7787ab2 100755
            <Animated.View
              pointerEvents="none"
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
-index 2ca12de..1211095 100644
+index 2ca12de..f697d7b 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 @@ -1,17 +1,15 @@
@@ -100,6 +100,17 @@ index 2ca12de..1211095 100644
  
  type Props = TransitionPreset & {
    index: number;
+@@ -164,8 +162,8 @@ function CardContainer({
+           ? { marginTop: headerHeight }
+           : null
+       }
+-      contentStyle={[{ backgroundColor: colors.background }, cardStyle] as any}
+-      style={StyleSheet.absoluteFill}
++      contentStyle={[{ backgroundColor: colors.background }, cardStyle,{backgroundColor:"orange"}] as any}
++      style={[StyleSheet.absoluteFill,{backgroundColor:"green"}]}
+     >
+       <View style={styles.container}>
+         <View style={styles.scene}>
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
 index 002b37a..f4625ec 100755
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
