@@ -72,7 +72,7 @@ index 3ea8548..7787ab2 100755
            <Animated.View
              pointerEvents="none"
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
-index 2ca12de..fb2f74c 100644
+index 2ca12de..1211095 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 @@ -1,17 +1,15 @@
@@ -100,14 +100,76 @@ index 2ca12de..fb2f74c 100644
  
  type Props = TransitionPreset & {
    index: number;
-@@ -197,8 +195,10 @@ const styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     flexDirection: 'column-reverse',
-+    backgroundColor:"red"
-   },
-   scene: {
-     flex: 1,
-+    backgroundColor:"green"
-   },
- });
+diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
+index 002b37a..f4625ec 100755
+--- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
++++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
+@@ -1,38 +1,25 @@
+ import * as React from 'react';
+ import {
+-  Animated,
+-  View,
+-  StyleSheet,
+-  LayoutChangeEvent,
+-  Dimensions,
+-  Platform,
+-  ViewProps,
++  Animated, Dimensions, LayoutChangeEvent, Platform, StyleSheet, View, ViewProps
+ } from 'react-native';
+ import { EdgeInsets } from 'react-native-safe-area-context';
+ // eslint-disable-next-line import/no-unresolved
+-import { ScreenContainer, Screen, screensEnabled } from 'react-native-screens'; // Import with * as to prevent getters being called
++import { Screen, ScreenContainer, screensEnabled } from 'react-native-screens'; // Import with * as to prevent getters being called
+ import { NavigationState as StackNavigationState } from 'react-navigation';
+ 
+-import { getDefaultHeaderHeight } from '../Header/HeaderSegment';
+-import { Props as HeaderContainerProps } from '../Header/HeaderContainer';
+-import CardContainer from './CardContainer';
++import { forNoAnimation as forNoAnimationCard } from '../../TransitionConfigs/CardStyleInterpolators';
++import { forNoAnimation as forNoAnimationHeader } from '../../TransitionConfigs/HeaderStyleInterpolators';
+ import {
+   DefaultTransition,
+-  ModalTransition,
++  ModalTransition
+ } from '../../TransitionConfigs/TransitionPresets';
+-import { forNoAnimation as forNoAnimationHeader } from '../../TransitionConfigs/HeaderStyleInterpolators';
+-import { forNoAnimation as forNoAnimationCard } from '../../TransitionConfigs/CardStyleInterpolators';
+-import getDistanceForDirection from '../../utils/getDistanceForDirection';
+ import {
+-  Route,
+-  Layout,
+-  StackHeaderMode,
+-  StackCardMode,
+-  Scene,
+-  StackDescriptorMap,
+-  StackNavigationOptions,
+-  StackDescriptor,
++  Layout, Route, Scene, StackCardMode, StackDescriptor, StackDescriptorMap, StackHeaderMode, StackNavigationOptions
+ } from '../../types';
++import getDistanceForDirection from '../../utils/getDistanceForDirection';
++import { Props as HeaderContainerProps } from '../Header/HeaderContainer';
++import { getDefaultHeaderHeight } from '../Header/HeaderSegment';
++import CardContainer from './CardContainer';
+ 
+ type GestureValues = {
+   [key: string]: Animated.Value;
+@@ -443,7 +430,9 @@ export default class CardStack extends React.Component<Props, State> {
+       <React.Fragment>
+         <MaybeScreenContainer
+           enabled={isScreensEnabled}
+-          style={styles.container}
++          style={[styles.container,{
++            backgroundColor:"red"
++          }]}
+           onLayout={this.handleLayout}
+         >
+           {routes.map((route, index, self) => {
+@@ -536,7 +525,7 @@ export default class CardStack extends React.Component<Props, State> {
+             return (
+               <MaybeScreen
+                 key={route.key}
+-                style={StyleSheet.absoluteFill}
++                style={[StyleSheet.absoluteFill,{backgroundColor:"blue"}]}
+                 enabled={isScreensEnabled}
+                 active={isScreenActive}
+                 pointerEvents="box-none"
