@@ -72,7 +72,7 @@ index 3ea8548..7787ab2 100755
            <Animated.View
              pointerEvents="none"
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
-index 2ca12de..f697d7b 100644
+index 2ca12de..5e9e2ea 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 @@ -1,17 +1,15 @@
@@ -100,7 +100,7 @@ index 2ca12de..f697d7b 100644
  
  type Props = TransitionPreset & {
    index: number;
-@@ -164,8 +162,8 @@ function CardContainer({
+@@ -164,13 +162,13 @@ function CardContainer({
            ? { marginTop: headerHeight }
            : null
        }
@@ -111,8 +111,14 @@ index 2ca12de..f697d7b 100644
      >
        <View style={styles.container}>
          <View style={styles.scene}>
+           <HeaderHeightContext.Provider value={headerHeight}>
+-            {renderScene({ route: scene.route })}
++            {/* {renderScene({ route: scene.route })} */}
+           </HeaderHeightContext.Provider>
+         </View>
+         {headerMode === 'screen'
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
-index 002b37a..f4625ec 100755
+index 002b37a..c533082 100755
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardStack.tsx
 @@ -1,38 +1,25 @@
@@ -164,7 +170,15 @@ index 002b37a..f4625ec 100755
  
  type GestureValues = {
    [key: string]: Animated.Value;
-@@ -443,7 +430,9 @@ export default class CardStack extends React.Component<Props, State> {
+@@ -390,6 +377,7 @@ export default class CardStack extends React.Component<Props, State> {
+     });
+   };
+   
++
+   render() {
+     const {
+       mode,
+@@ -443,7 +431,9 @@ export default class CardStack extends React.Component<Props, State> {
        <React.Fragment>
          <MaybeScreenContainer
            enabled={isScreensEnabled}
@@ -175,7 +189,7 @@ index 002b37a..f4625ec 100755
            onLayout={this.handleLayout}
          >
            {routes.map((route, index, self) => {
-@@ -536,7 +525,7 @@ export default class CardStack extends React.Component<Props, State> {
+@@ -536,7 +526,7 @@ export default class CardStack extends React.Component<Props, State> {
              return (
                <MaybeScreen
                  key={route.key}
@@ -185,7 +199,7 @@ index 002b37a..f4625ec 100755
                  active={isScreenActive}
                  pointerEvents="box-none"
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx
-index c30acd7..3b2492b 100644
+index c30acd7..077322a 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/StackView.tsx
 @@ -1,24 +1,20 @@
@@ -221,16 +235,21 @@ index c30acd7..3b2492b 100644
  
  type Props = StackNavigationConfig & {
    state: StackNavigationState;
-@@ -266,8 +262,10 @@ class StackView extends React.Component<Props, State> {
+@@ -266,7 +262,7 @@ class StackView extends React.Component<Props, State> {
      const SceneComponent = getComponent();
  
      return (
 -      <SceneView
--        screenProps={this.props.screenProps}
 +        <SceneView
-+        screenProps={{...this.props.screenProps,options: {
-+          backgroundColor:"blue"
-+        }}}
+         screenProps={this.props.screenProps}
          navigation={navigation}
          component={SceneComponent}
-       />
+@@ -368,6 +364,8 @@ class StackView extends React.Component<Props, State> {
+     const headerMode =
+       mode !== 'modal' && Platform.OS === 'ios' ? 'float' : 'screen';
+ 
++
++
+     return (
+       <SafeAreaProviderCompat>
+         <SafeAreaConsumer>
