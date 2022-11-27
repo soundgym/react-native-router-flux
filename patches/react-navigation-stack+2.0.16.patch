@@ -18,7 +18,7 @@ index f97a7e4..f298cad 100644
      'onTransitionStart',
      'onTransitionEnd',
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
-index 3ea8548..211ec5c 100755
+index 3ea8548..4d56ec6 100755
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
 +++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/Card.tsx
 @@ -1,32 +1,21 @@
@@ -62,15 +62,15 @@ index 3ea8548..211ec5c 100755
  
  type Props = ViewProps & {
    index: number;
-@@ -472,7 +461,7 @@ export default class Card extends React.Component<Props> {
-             onHandlerStateChange={this.handleGestureStateChange}
-             {...this.gestureActivationCriteria()}
-           >
--            <Animated.View style={[styles.container, cardStyle]}>
-+            <Animated.View style={[styles.container, cardStyle,{backgroundColor:"blue"}]}>
-               {shadowEnabled && shadowStyle && !isTransparent ? (
-                 <Animated.View
-                   style={[
+@@ -454,7 +443,7 @@ export default class Card extends React.Component<Props> {
+       : false;
+ 
+     return (
+-      <View pointerEvents="box-none" {...rest}>
++      <View pointerEvents="box-none" {...rest} style={{backgroundColor:"blue"}}>
+         {overlayEnabled && overlayStyle ? (
+           <Animated.View
+             pointerEvents="none"
 diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
 index 2ca12de..1211095 100644
 --- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
