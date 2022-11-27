@@ -17,3 +17,41 @@ index f97a7e4..f298cad 100644
      'headerBackTitleVisible',
      'onTransitionStart',
      'onTransitionEnd',
+diff --git a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
+index 2ca12de..a56808b 100644
+--- a/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
++++ b/node_modules/react-navigation-stack/src/vendor/views/Stack/CardContainer.tsx
+@@ -1,17 +1,15 @@
+ import * as React from 'react';
+-import { Animated, View, StyleSheet, StyleProp, ViewStyle } from 'react-native';
++import { Animated, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+ import { NavigationState as StackNavigationState } from 'react-navigation';
+-import { Props as HeaderContainerProps } from '../Header/HeaderContainer';
+-import Card from './Card';
+-import HeaderHeightContext from '../../utils/HeaderHeightContext';
+ import useTheme from '../../../utils/useTheme';
+ import {
+-  Route,
+-  Scene,
+-  Layout,
+-  StackHeaderMode,
+-  TransitionPreset,
++  Layout, Route,
++  Scene, StackHeaderMode,
++  TransitionPreset
+ } from '../../types';
++import HeaderHeightContext from '../../utils/HeaderHeightContext';
++import { Props as HeaderContainerProps } from '../Header/HeaderContainer';
++import Card from './Card';
+ 
+ type Props = TransitionPreset & {
+   index: number;
+@@ -164,7 +162,7 @@ function CardContainer({
+           ? { marginTop: headerHeight }
+           : null
+       }
+-      contentStyle={[{ backgroundColor: colors.background }, cardStyle] as any}
++      contentStyle={[{ backgroundColor: "red" }, cardStyle] as any}
+       style={StyleSheet.absoluteFill}
+     >
+       <View style={styles.container}>
