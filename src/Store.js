@@ -2,7 +2,6 @@ import { createAppContainer, NavigationActions, StackActions } from 'react-navig
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Animated, Easing, Image } from 'react-native';
-import { NavigationActions, StackActions } from 'react-navigation';
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';
