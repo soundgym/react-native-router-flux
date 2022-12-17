@@ -1,4 +1,4 @@
-import { createAppContainer } from '@react-navigation/native';
+import { createAppContainer, NavigationActions, StackActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Animated, Easing, Image } from 'react-native';
